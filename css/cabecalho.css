@@ -75,7 +75,7 @@
 }
 
 .cabecalho_checkbox input[type="checkbox"]:checked {
-  background: #706EA8 url(../img/vector__checket.svg) no-repeat center / 80%;
+  background: #706EA8 url(../assets/img/vector__checket.svg) no-repeat center / 80%;
 }
 
 @media screen and (min-width: 375px) and (max-width: 1024px) {

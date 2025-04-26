@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Filmes Populares</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"    
+    />
+    <link rel="stylesheet" href="css/reset.css" />
+    <link rel="stylesheet" href="css/base.css" />
+    <link rel="stylesheet" href="css/cabecalho.css" />
+    <link rel="stylesheet" href="css/cards.css" />
+</head>
+<body>
+  <header class="cabecalho">
+    <h1 class="cabecalho_titulo">Filmes Populares</h1>
+
+    <div class="cabecalho_pesquisa">
+      <input type="text" class="cabecalho_pesquisa-input" placeholder="Digite algum filme para pesquisar..."/>
+      <span class="cabecalho_pesquisa-lupa">
+        <img src="img/search-icon.svg" alt="">
+      </span>
+    </div>
+
+    <label class="cabecalho_checkbox">
+      <input type="checkbox" id="cabecalho_checkbox"/>
+      Mostrar meus filmes favoritos apenas
+    </label>
+  </header>
+
+  <section id="filmes"></section>
+  <section class="card_lista-vazia">Você ainda não adicionou nenhum filme a sua lista de favoritos!</section>
+
+  <script src="js/script.js" type="module"></script>
+  <script src="js/filtro.js" type="module"></script>
+  <script src="js/main.js" type="module"></script>
+</body>
+</html>

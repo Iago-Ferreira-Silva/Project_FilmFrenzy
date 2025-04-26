@@ -20,4 +20,5 @@ Neste catálogo de filmes, você encontrará informações detalhadas sobre os m
 ## API Utilizada:
 The Movie Database (TMDB)
 
-## Meu Projeto:
+## Link do meu Projeto:
+https://iago-ferreira-silva.github.io/Project_FilmFrenzy/

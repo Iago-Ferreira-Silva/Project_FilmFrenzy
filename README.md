@@ -21,4 +21,3 @@ Neste catálogo de filmes, você encontrará informações detalhadas sobre os m
 The Movie Database (TMDB)
 
 ## Meu Projeto:
-https://github.com/user-attachments/assets/45f8821d-81bc-4483-a7b6-202574ed34b9

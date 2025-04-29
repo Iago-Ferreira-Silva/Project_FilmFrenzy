@@ -1,1 +1,2 @@
-tmdb-proxy-server/
+.env
+node_modules/

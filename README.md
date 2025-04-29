@@ -50,7 +50,12 @@ https://iago-ferreira-silva.github.io/Project_FilmFrenzy/
 ### 🔗 Back-end (Render)
 https://filmfrenzy-api.onrender.com
 
+A API Proxy está online e protegida. Acesse diretamente qualquer uma das rotas abaixo para testar:
+
 #### 🔁 Rotas públicas disponíveis:
+
+- `/` → Mensagem amigável confirmando que a API está no ar  
+  👉 https://filmfrenzy-api.onrender.com/
 
 - `/popular` → Lista os filmes populares  
   👉 https://filmfrenzy-api.onrender.com/popular
@@ -58,7 +63,7 @@ https://filmfrenzy-api.onrender.com
 - `/search?query=batman` → Busca filmes por título  
   👉 https://filmfrenzy-api.onrender.com/search?query=batman
 
-- `/movie/:id` → Detalhes de um filme  
+- `/movie/:id` → Detalhes de um filme por ID  
   👉 https://filmfrenzy-api.onrender.com/movie/123
 
 ---

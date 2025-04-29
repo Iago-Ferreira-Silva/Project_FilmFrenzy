@@ -72,6 +72,11 @@ app.get('/movie/:id', async (req, res) => {
     }
 });
 
+// 🔹 Rota raiz: mensagem de boas-vindas
+app.get('/', (req, res) => {
+    res.send('🎬 FilmFrenzy API Proxy está online! Acesse /popular, /search ou /movie/:id');
+});
+
 app.listen(PORT, () => {
     console.log(`Servidor rodando em http://localhost:${PORT}`);
 });

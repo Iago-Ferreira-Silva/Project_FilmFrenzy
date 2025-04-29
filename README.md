@@ -1,54 +1,92 @@
-# Projeto FilmFrenzy
+# 🎬 Projeto FilmFrenzy
 
-## Descrição:
+## 📖 Descrição
+
 Bem-vindo ao **FilmFrenzy** 🤩, o seu guia definitivo para explorar o mundo do cinema! 🎬
 
-Neste catálogo de filmes, você encontrará informações detalhadas sobre os filmes mais populares e poderá pesquisar seus filmes favoritos 📽.  
-O FilmFrenzy utiliza a API do **The Movie Database (TMDB)** de forma segura, através de um servidor **Node.js** que protege a chave da API 🔒.
+Neste catálogo de filmes, você encontrará informações detalhadas sobre os filmes mais populares e poderá pesquisar seus favoritos 📽.  
+O FilmFrenzy utiliza a API do **The Movie Database (TMDB)** de forma segura, através de um servidor **Node.js** hospedado na nuvem que protege a chave da API 🔒.
 
-## Características:
-- ✅ Listagem dos 10 filmes mais populares no momento!
-- 🔍 Busca de filmes por título.
-- ⭐ Adicionar e remover filmes da lista de favoritos.
-- 📱 Navegação intuitiva e design responsivo para uma ótima experiência em qualquer dispositivo.
-- 🔒 Proteção da API key através de um servidor proxy em Node.js.
-- 📈 Atualizações automáticas dos dados dos filmes, utilizando integração com a TMDB API.
+---
 
-## Tecnologias Utilizadas:
-- JavaScript (Front-end) 📝
-- HTML5 📄
-- CSS3 💻
-- Node.js (Back-end - servidor proxy) ⚙️
+## ✨ Funcionalidades
+
+- ✅ Listagem dos 10 filmes mais populares
+- 🔍 Busca de filmes por título
+- ⭐ Adicionar e remover filmes da lista de favoritos
+- 📱 Design responsivo para todos os dispositivos
+- 🔒 API Key protegida via servidor proxy
+- 🌐 Back-end e front-end totalmente hospedados online
+
+---
+
+## 🛠 Tecnologias Utilizadas
+
+### Front-end
+- JavaScript
+- HTML5
+- CSS3
+
+### Back-end (proxy)
+- Node.js
 - Express.js
 - Axios
 - dotenv
 - CORS
-- API do The Movie Database (TMDB) 📊
-
-## API Utilizada:
-- [The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api)
-
-## Link do meu Projeto:
-[https://iago-ferreira-silva.github.io/Project_FilmFrenzy/](https://iago-ferreira-silva.github.io/Project_FilmFrenzy/)
-
-⚠️ **Nota:** A versão online pode apresentar limitações caso o servidor Node.js não esteja hospedado publicamente (necessário deploy do servidor para busca funcionar fora do localhost).
 
 ---
 
-## Como rodar localmente:
+## 🎥 API Utilizada
 
-1. Clone este repositório:
+- [The Movie Database (TMDB)](https://www.themoviedb.org/documentation/api)
+
+---
+
+## 🌐 Projeto Online
+
+### 🔗 Front-end (GitHub Pages)
+https://iago-ferreira-silva.github.io/Project_FilmFrenzy/
+
+### 🔗 Back-end (Render)
+https://filmfrenzy-api.onrender.com
+
+#### 🔁 Rotas públicas disponíveis:
+
+- `/popular` → Lista os filmes populares  
+  👉 https://filmfrenzy-api.onrender.com/popular
+
+- `/search?query=batman` → Busca filmes por título  
+  👉 https://filmfrenzy-api.onrender.com/search?query=batman
+
+- `/movie/:id` → Detalhes de um filme  
+  👉 https://filmfrenzy-api.onrender.com/movie/123
+
+---
+
+## ⚠️ Observação
+
+Você **não precisa rodar o servidor localmente** para testar o projeto.  
+O front-end hospedado no GitHub Pages já se comunica diretamente com o back-end online hospedado no Render.  
+✅ Basta acessar o link acima e usar!
+
+---
+
+## 🧪 Como rodar localmente (opcional)
+
+Se quiser testar o servidor localmente:
+
 ```bash
+# 1. Clone o repositório
 git clone https://github.com/Iago-Ferreira-Silva/Project_FilmFrenzy.git
 
-2. Instale as dependências do servidor:
+# 2. Acesse a pasta do servidor
 cd tmdb-proxy-server
+
+# 3. Instale as dependências
 npm install
 
-3. Crie um arquivo .env na raiz do tmdb-proxy-server com sua chave da TMDB:
-API_KEY=sua_chave_aqui
+# 4. Crie o arquivo .env com sua chave TMDB
+echo "API_KEY=sua_chave_tmdb" > .env
 
-4. Inicie o servidor proxy:
+# 5. Inicie o servidor local
 npm start
-
-5. Abra o arquivo index.html no navegador ou utilize a extensão "Live Server".

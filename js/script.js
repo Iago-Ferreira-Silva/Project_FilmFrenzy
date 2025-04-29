@@ -1,12 +1,11 @@
 import { InserirFilmesNaTela } from "./main.js";
 
-export const apiKey = '3330f16462f8795c970688ef5f8863cd';
 let movies = [];
 
-fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR`)
-  .then(reponse => reponse.json())
+fetch('http://localhost:3000/popular')
+  .then(response => response.json())
   .then(data => {
-    movies = data.results.slice(0, 10); // Atribui o valor a movies, por exemplo (top 10 filmes populares)
+    movies = data.results.slice(0, 10);
     InserirFilmesNaTela(movies);
   })
   .catch(error => {

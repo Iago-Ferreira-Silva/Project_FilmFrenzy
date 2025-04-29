@@ -1,8 +1,7 @@
 import { listaDeFavoritos } from "./main.js";
-import { apiKey } from "./script.js";
 import { InserirFilmesNaTela } from "./main.js";
-const filtroAtivo = document.getElementById('cabecalho_checkbox');
 
+const filtroAtivo = document.getElementById('cabecalho_checkbox');
 filtroAtivo.addEventListener('change', getFilmesFavoritos);
 
 const inputPesquisa = document.querySelector('.cabecalho_pesquisa-input');
@@ -10,24 +9,25 @@ const luga = document.querySelector('.cabecalho_pesquisa-lupa');
 luga.addEventListener('click', pesquisarFilmes);
 
 function pesquisarFilmes() {
-  const searchTerm = inputPesquisa.value.trim(); // Obtém o valor do campo de pesquisa e remove espaços em branco no início e no final
+  const searchTerm = inputPesquisa.value.trim();
 
   if (searchTerm !== '') {
-    fetch(`https://api.themoviedb.org/3/search/movie?api_key=${apiKey}&language=pt-BR&query=${searchTerm}&page=1&include_adult=false`)
+    fetch(`http://localhost:3000/search?query=${encodeURIComponent(searchTerm)}`)
       .then(response => response.json())
       .then(data => {
-          const movies = data.results; // Array de filmes correspondentes aos resultados da pesquisa
+          console.log('Resultado da busca:', data);
+          const movies = data.results;
           let movieIds = [];
           let movieList = [];
 
-          const exactMatch = movies.find(movie => movie.title === searchTerm); // Verifica se há um filme com título exato
+          const exactMatch = movies.find(movie => movie.title === searchTerm);
 
           if (exactMatch) {
-            movieIds.push(exactMatch.id); // Adiciona o ID do filme com tpitulo exato
-            movieList.push(exactMatch); // Adiciona o filme à lista de filmes
+            movieIds.push(exactMatch.id);
+            movieList.push(exactMatch);
           } else {
-            movieIds = movies.map(movie => movie.id); // Adiciona os IDs de todos os filmes correspondentes
-            movieList = movies; // Define a lista de filmes como todos os filmes correspondentes
+            movieIds = movies.map(movie => movie.id);
+            movieList = movies;
           }
 
           InserirFilmesNaTela(movieList);
@@ -35,41 +35,41 @@ function pesquisarFilmes() {
       .catch(error => {
         console.error('Ocorreu um erro ao pesquisar filmes:', error);
       });
-  }else {
+  } else {
     console.log('Nenhum termo de pesquisa foi inserido.');
   }
 }
 
 async function getFilmesFavoritos() {
-    if (listaDeFavoritos.length === 0) {
-      document.getElementById('filmes').innerHTML = '';
-      document.querySelector('.card_lista-vazia').style.display = 'flex';
-    }
+  if (listaDeFavoritos.length === 0) {
+    document.getElementById('filmes').innerHTML = '';
+    document.querySelector('.card_lista-vazia').style.display = 'flex';
+  }
 
-    if (filtroAtivo.checked) {
-        try {
-          const filmes = [];
-          for (const movieId of listaDeFavoritos) {
-              const response = await fetch(`https://api.themoviedb.org/3/movie/${movieId}?api_key=${apiKey}&language=pt-BR`);
-              const movie = await response.json();
-              filmes.push(movie);
-          }
-          InserirFilmesNaTela(filmes);
-          document.querySelectorAll('.cards').forEach(elemento => {
-            elemento.querySelector('.cards_parte2-checkbox').checked = true;
-          });
-        } catch (error) {
-          console.error('Ocorreu um erro  ao obter detalhes dos filmes:', error);
-        }
-    } else {
-      document.querySelector('.card_lista-vazia').style.display = 'none';
-      try {
-          const response = await fetch(`https://api.themoviedb.org/3/movie/popular?api_key=${apiKey}&language=pt-BR`);
-          const data = await response.json();
-          const movies = data.results.slice(0, 10);
-          InserirFilmesNaTela(movies);
-      } catch (error) {
-        console.error('Ocorreu um erro ao obter os filmes populares:', error);
+  if (filtroAtivo.checked) {
+    try {
+      const filmes = [];
+      for (const movieId of listaDeFavoritos) {
+        const response = await fetch(`http://localhost:3000/movie/${movieId}`);
+        const movie = await response.json();
+        filmes.push(movie);
       }
+      InserirFilmesNaTela(filmes);
+      document.querySelectorAll('.cards').forEach(elemento => {
+        elemento.querySelector('.cards_parte2-checkbox').checked = true;
+      });
+    } catch (error) {
+      console.error('Ocorreu um erro ao obter detalhes dos filmes:', error);
     }
+  } else {
+    document.querySelector('.card_lista-vazia').style.display = 'none';
+    try {
+      const response = await fetch('http://localhost:3000/popular');
+      const data = await response.json();
+      const movies = data.results.slice(0, 10);
+      InserirFilmesNaTela(movies);
+    } catch (error) {
+      console.error('Ocorreu um erro ao obter os filmes populares:', error);
+    }
+  }
 }

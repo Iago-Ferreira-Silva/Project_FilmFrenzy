@@ -2,7 +2,7 @@ import { InserirFilmesNaTela } from "./main.js";
 
 let movies = [];
 
-fetch('http://localhost:3000/popular')
+fetch('https://filmfrenzy-api.onrender.com')
   .then(response => response.json())
   .then(data => {
     movies = data.results.slice(0, 10);

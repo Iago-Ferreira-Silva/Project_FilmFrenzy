@@ -12,7 +12,7 @@ function pesquisarFilmes() {
   const searchTerm = inputPesquisa.value.trim();
 
   if (searchTerm !== '') {
-    fetch(`http://localhost:3000/search?query=${encodeURIComponent(searchTerm)}`)
+    fetch(`https://filmfrenzy-api.onrender.com/search?query=${encodeURIComponent(searchTerm)}`)
       .then(response => response.json())
       .then(data => {
           console.log('Resultado da busca:', data);
@@ -50,7 +50,7 @@ async function getFilmesFavoritos() {
     try {
       const filmes = [];
       for (const movieId of listaDeFavoritos) {
-        const response = await fetch(`http://localhost:3000/movie/${movieId}`);
+        const response = await fetch(`https://filmfrenzy-api.onrender.com/movie/${movieId}`);
         const movie = await response.json();
         filmes.push(movie);
       }
@@ -64,7 +64,7 @@ async function getFilmesFavoritos() {
   } else {
     document.querySelector('.card_lista-vazia').style.display = 'none';
     try {
-      const response = await fetch('http://localhost:3000/popular');
+      const response = await fetch('https://filmfrenzy-api.onrender.com/popular');
       const data = await response.json();
       const movies = data.results.slice(0, 10);
       InserirFilmesNaTela(movies);

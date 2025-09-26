@@ -95,3 +95,10 @@ echo "API_KEY=sua_chave_tmdb" > .env
 
 # 5. Inicie o servidor local
 npm start
+```
+***
+
+## 📌 STATUS DO PROJETO:
+![Badge Concluído](https://img.shields.io/static/v1?label=STATUS&message=CONCLU%C3%8DDO&color=brightgreen&style=for-the-badge)
+
+***

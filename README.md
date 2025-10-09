@@ -44,38 +44,11 @@ O FilmFrenzy utiliza a API do **The Movie Database (TMDB)** de forma segura, atr
 
 ## 🌐 Projeto Online
 
-### 🔗 Front-end (GitHub Pages)
-https://iago-ferreira-silva.github.io/Project_FilmFrenzy/
+<p>
+  🔗 <a href="https://iago-ferreira-silva.github.io/Project_FilmFrenzy/" target="_blank"><strong>👉 Acesse o projeto aqui</strong></a>
+</p>
 
-### 🔗 Back-end (Render)
-https://filmfrenzy-api.onrender.com
-
-A API Proxy está online e protegida. Acesse diretamente qualquer uma das rotas abaixo para testar:
-
-#### 🔁 Rotas públicas disponíveis:
-
-- `/` → Mensagem amigável confirmando que a API está no ar  
-  👉 https://filmfrenzy-api.onrender.com/
-
-- `/popular` → Lista os filmes populares  
-  👉 https://filmfrenzy-api.onrender.com/popular
-
-- `/search?query=batman` → Busca filmes por título  
-  👉 https://filmfrenzy-api.onrender.com/search?query=batman
-
-- `/movie/:id` → Detalhes de um filme por ID  
-  👉 https://filmfrenzy-api.onrender.com/movie/123
-
----
-
-## ⚠️ Observação
-
-Você **não precisa rodar o servidor localmente** para testar o projeto.  
-O front-end hospedado no GitHub Pages já se comunica diretamente com o back-end online hospedado no Render.  
-✅ Basta acessar o link acima e usar!
-
----
-
+***
 ## 🧪 Como rodar localmente (opcional)
 
 Se quiser testar o servidor localmente:

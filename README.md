@@ -72,6 +72,6 @@ npm start
 ***
 
 ## 📌 STATUS DO PROJETO:
-![Badge Concluído](https://img.shields.io/static/v1?label=STATUS&message=CONCLU%C3%8DDO&color=brightgreen&style=for-the-badge)
+![Badge Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
 
 ***

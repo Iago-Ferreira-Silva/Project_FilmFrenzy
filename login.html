@@ -6,36 +6,60 @@
     <title>Tela Login</title>
     <link rel="stylesheet" href="/css/login.css">
 
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://i.pinimg.com/736x/b7/f7/c0/b7f7c0552349afdd53cd3dab7ee5f850.jpg" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;700&display=swap" rel="stylesheet">
 
+    <!-- Ícone -->
+    <link rel="icon" href="https://i.pinimg.com/736x/b7/f7/c0/b7f7c0552349afdd53cd3dab7ee5f850.jpg">
 </head>
 <body>
     <div class="container">
-        <form action="">
+        <!-- LOGIN FORM -->
+        <form id="login-form" autocomplete="off">
             <h1>Entrar na Plataforma</h1>
             <div class="input-container">
-                <input placeholder="Email" type="email" required/>
-
-                <img width="20" height="20" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user-male-circle--v1"/>
+                <input id="email" name="email" placeholder="Email" type="email" required />
+                <img width="20" height="20" src="https://img.icons8.com/ios/50/user-male-circle--v1.png" alt="user icon"/>
             </div>
 
             <div class="input-container">
-                <input placeholder="Senha" type="password" required/>
+                <input id="password" name="password" placeholder="Senha" type="password" required />
                 <img width="20" height="20" src="https://img.icons8.com/ios/50/unlock.png" alt="unlock"/>
-                <a href="">Esqueci minha senha</a><!-- PARTE DO HIAGO -->
             </div>
 
-            <button type="submit" class="submit-button">Entrar</button>
+            <button id="btn-login" type="submit" class="submit-button">Entrar</button>
 
             <div class="register-link">
-                <p>Não tem uma conta? <a href="">Cadastre-se agora</a></p> <!-- PARTE DO HIAGO -->
+                <p>Não tem uma conta? <button id="btn-toggle-register" type="button" class="link-button">Cadastre-se agora</button></p>
             </div>
+
+            <p id="login-message" class="login_message" aria-live="polite"></p>
         </form>
 
+        <!-- REGISTER FORM -->
+        <form id="register-form" class="hidden" autocomplete="off">
+            <h1>Registrar</h1>
+
+            <div class="input-container">
+                <input id="r-email" name="r-email" placeholder="Email" type="email" required />
+            </div>
+
+            <div class="input-container">
+                <input id="r-password" name="r-password" placeholder="Senha (mín. 6)" type="password" required minlength="6" />
+            </div>
+
+            <div class="login_actions">
+                <button id="btn-register" type="submit" class="submit-button">Criar</button>
+                <button id="btn-cancel-register" type="button" class="submit-button secondary">Cancelar</button>
+            </div>
+
+            <p id="register-message" class="login_message" aria-live="polite"></p>
+        </form>
     </div>
 
-    
+    <script type="module" src="js/auth.js"></script>
+    <script type="module" src="js/login.js"></script>
 </body>
 </html>

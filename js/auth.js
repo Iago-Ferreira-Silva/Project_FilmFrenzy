@@ -1,6 +1,13 @@
 // Autenticação client-side simples usando localStorage.
 // Armazena usuários em 'ff_users' (array de {email, passwordHash, createdAt}).
 
+const STORAGE_KEYS = {
+  USERS: 'ff_users',
+  SESSION: 'ff_currentUser'
+};
+
+// --- Funções utilitárias ---
+
 export async function hashPassword(password) {
   const enc = new TextEncoder();
   const data = enc.encode(password);
@@ -9,9 +16,16 @@ export async function hashPassword(password) {
   return hashArray.map(b => b.toString(16).padStart(2, '0')).join('');
 }
 
+function isValidEmail(email) {
+  // Validação simples de formato
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email);
+}
+
+// --- Acesso ao localStorage ---
+
 export function getUsers() {
   try {
-    const raw = localStorage.getItem('ff_users');
+    const raw = localStorage.getItem(STORAGE_KEYS.USERS);
     return raw ? JSON.parse(raw) : [];
   } catch (e) {
     console.error('Erro ao ler usuários:', e);
@@ -20,45 +34,72 @@ export function getUsers() {
 }
 
 export function saveUsers(users) {
-  localStorage.setItem('ff_users', JSON.stringify(users));
+  localStorage.setItem(STORAGE_KEYS.USERS, JSON.stringify(users));
 }
+
+// --- Registro de usuário ---
 
 export async function register(email, password) {
   email = String(email).trim().toLowerCase();
-  if (!email || !password) throw new Error('E-mail e senha são necessários');
+
+  if (!email || !password)
+    throw new Error('E-mail e senha são obrigatórios');
+
+  if (!isValidEmail(email))
+    throw new Error('Formato de e-mail inválido');
+
+  if (password.length < 6)
+    throw new Error('A senha deve ter pelo menos 6 caracteres');
+
   const users = getUsers();
-  if (users.some(u => u.email === email)) {
+
+  if (users.some(u => u.email === email))
     throw new Error('Já existe uma conta com esse e-mail');
-  }
+
   const passwordHash = await hashPassword(password);
   const user = { email, passwordHash, createdAt: new Date().toISOString() };
+
   users.push(user);
   saveUsers(users);
-  return { email }; // retorno simples
+
+  return { email };
 }
+
+// --- Login de usuário ---
 
 export async function login(email, password) {
   email = String(email).trim().toLowerCase();
-  if (!email || !password) throw new Error('E-mail e senha são necessários');
+  if (!email || !password)
+    throw new Error('E-mail e senha são obrigatórios');
+
   const users = getUsers();
   const passwordHash = await hashPassword(password);
   const user = users.find(u => u.email === email && u.passwordHash === passwordHash);
-  if (!user) throw new Error('E-mail ou senha incorretos');
-  // Salva usuário atual (simples) — apenas e-mail e timestamp
-  const session = { email: user.email, loggedAt: new Date().toISOString() };
-  localStorage.setItem('ff_currentUser', JSON.stringify(session));
+
+  if (!user)
+    throw new Error('E-mail ou senha incorretos');
+
+  // Cria sessão (apenas exemplo simples)
+  const session = {
+    email: user.email,
+    loggedAt: new Date().toISOString()
+  };
+
+  localStorage.setItem(STORAGE_KEYS.SESSION, JSON.stringify(session));
   return session;
 }
 
+// --- Sessão ---
+
 export function logout() {
-  localStorage.removeItem('ff_currentUser');
+  localStorage.removeItem(STORAGE_KEYS.SESSION);
 }
 
 export function getCurrentUser() {
   try {
-    const raw = localStorage.getItem('ff_currentUser');
+    const raw = localStorage.getItem(STORAGE_KEYS.SESSION);
     return raw ? JSON.parse(raw) : null;
-  } catch (e) {
+  } catch {
     return null;
   }
 }

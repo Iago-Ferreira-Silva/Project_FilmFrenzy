@@ -6,12 +6,15 @@ const toggleRegisterBtn = document.getElementById('btn-toggle-register');
 const cancelRegisterBtn = document.getElementById('btn-cancel-register');
 const loginMessage = document.getElementById('login-message');
 const registerMessage = document.getElementById('register-message');
+const btnLogin = document.getElementById('btn-login');
+const btnRegister = document.getElementById('btn-register');
 
 function showMessage(el, text, isError = false) {
   el.textContent = text;
-  el.style.color = isError ? '#c0392b' : '#16a085';
+  el.style.color = isError ? '#ff5c5c' : '#16a085';
 }
 
+// Alterna entre formulários
 toggleRegisterBtn?.addEventListener('click', () => {
   registerForm.classList.remove('hidden');
   loginForm.classList.add('hidden');
@@ -24,29 +27,44 @@ cancelRegisterBtn?.addEventListener('click', () => {
   registerMessage.textContent = '';
 });
 
+// LOGIN
 loginForm?.addEventListener('submit', async (ev) => {
   ev.preventDefault();
-  const email = document.getElementById('email').value;
-  const password = document.getElementById('password').value;
+  const email = document.getElementById('email').value.trim();
+  const password = document.getElementById('password').value.trim();
+
+  if (!email.includes('@') || password.length < 6) {
+    showMessage(loginMessage, 'Preencha os campos corretamente.', true);
+    return;
+  }
+
   try {
-    showMessage(loginMessage, 'Acessando...', false);
+    btnLogin.disabled = true;
+    showMessage(loginMessage, 'Acessando...');
     await login(email, password);
     showMessage(loginMessage, 'Login efetuado com sucesso! Redirecionando...');
-    // pequeno delay para mostrar a mensagem
-    setTimeout(() => {
-      window.location.href = 'index.html';
-    }, 700);
+    setTimeout(() => window.location.href = 'index.html', 1000);
   } catch (err) {
     showMessage(loginMessage, err.message || 'Erro ao efetuar login', true);
+  } finally {
+    btnLogin.disabled = false;
   }
 });
 
+// REGISTER
 registerForm?.addEventListener('submit', async (ev) => {
   ev.preventDefault();
-  const email = document.getElementById('r-email').value;
-  const password = document.getElementById('r-password').value;
+  const email = document.getElementById('r-email').value.trim();
+  const password = document.getElementById('r-password').value.trim();
+
+  if (!email.includes('@') || password.length < 6) {
+    showMessage(registerMessage, 'Preencha os campos corretamente.', true);
+    return;
+  }
+
   try {
-    showMessage(registerMessage, 'Criando conta...', false);
+    btnRegister.disabled = true;
+    showMessage(registerMessage, 'Criando conta...');
     await register(email, password);
     showMessage(registerMessage, 'Conta criada com sucesso! Você já pode entrar.');
     setTimeout(() => {
@@ -56,5 +74,7 @@ registerForm?.addEventListener('submit', async (ev) => {
     }, 900);
   } catch (err) {
     showMessage(registerMessage, err.message || 'Erro ao criar conta', true);
+  } finally {
+    btnRegister.disabled = false;
   }
 });

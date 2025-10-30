@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-  --bg-image: url('/img/8677c490bfb25e747a8eaeef6dfc23a4.jpg'); /* ===== PARTE DE MIKAEL ===== */
+  --bg-image: url('/assets/img/background.png'); /* ===== PARTE DE MIKAEL ===== */
   --bg-overlay: rgba(0,0,0,0.6);
   --card-border: rgba(132,128,128,0.9);
   --card-radius: 12px;
@@ -45,7 +45,7 @@ body {
   backdrop-filter: blur(10px);
   border-radius: var(--card-radius);
   padding: 28px 30px;
-  box-shadow: 0 8px 30px rgba(0,0,0,0.35);
+  box-shadow: 0 8px 30px rgba(255, 255, 255, 0.35);
 }
 
 /* ===== TÍTULO ===== */

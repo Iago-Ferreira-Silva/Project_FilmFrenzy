@@ -2,7 +2,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 
 :root {
-  --bg-image: url('/assets/img/background.png');
+  --bg-image: url('../assets/img/background.png');
   --bg-overlay: rgba(0,0,0,0.6);
   --card-border: rgba(132,128,128,0.9);
   --card-radius: 12px;

@@ -15,9 +15,10 @@ body {
   align-items: center;
   gap: 48px;
 
-  background: var(--bg-color);
-  padding: 2% 6%;
+  background: linear-gradient(135deg, #032258, #103778, #0593A2);
+  background-attachment: fixed;
 
+  padding: 2% 6%;
   font-family: 'Kumbh Sans', sans-serif;
   font-size: normal;
   color: var(--branco);
@@ -26,5 +27,7 @@ body {
 #filmes {
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 48px;
+  width: 100%;
 }

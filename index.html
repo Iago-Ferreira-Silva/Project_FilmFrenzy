@@ -4,44 +4,67 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Filmes Populares</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
-      rel="stylesheet"    
-    />
-    <link rel="stylesheet" href="./css/reset.css" />
-    <link rel="stylesheet" href="./css/base.css" />
-    <link rel="stylesheet" href="./css/cabecalho.css" />
-    <link rel="stylesheet" href="./css/cards.css" />
-</head>
-<body>
-  <header class="cabecalho">
-    <h1 class="cabecalho_titulo">Filmes Populares</h1>
 
-    <div id="cabecalho_actions" class="cabecalho_actions">
+  <!-- Bootstrap CSS -->
+  <link
+    href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    rel="stylesheet"
+  />
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Kumbh+Sans:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <!-- Seus arquivos CSS -->
+  <link rel="stylesheet" href="./css/reset.css" />
+  <link rel="stylesheet" href="./css/base.css" />
+  <link rel="stylesheet" href="./css/cabecalho.css" />
+  <link rel="stylesheet" href="./css/cards.css" />
+</head>
+<body class="text-white">
+  <header class="cabecalho container d-flex flex-column align-items-center py-3">
+    <h1 class="cabecalho_titulo mb-3">🎬 Filmes Populares</h1>
+
+    <div id="cabecalho_actions" class="cabecalho_actions mb-3">
       <!-- preenchido por js/session.js quando o usuário estiver autenticado -->
     </div>
 
-    <div class="cabecalho_pesquisa">
-      <input type="text" class="cabecalho_pesquisa-input" placeholder="Digite algum filme para pesquisar..."/>
+    <div class="cabecalho_pesquisa d-flex align-items-center gap-2 mb-3">
+      <input
+        type="text"
+        class="cabecalho_pesquisa-input form-control"
+        placeholder="Digite algum filme para pesquisar..."
+      />
       <span class="cabecalho_pesquisa-lupa">
-        <img src="./assets/img/search-icon.svg" alt=""/>
+        <img src="./assets/img/search-icon.svg" alt="ícone de busca" width="22">
       </span>
     </div>
 
-    <label class="cabecalho_checkbox">
-      <input type="checkbox" id="cabecalho_checkbox"/>
+    <label class="cabecalho_checkbox d-flex align-items-center gap-2">
+      <input type="checkbox" id="cabecalho_checkbox" class="form-check-input"/>
       Mostrar meus filmes favoritos apenas
     </label>
   </header>
 
-  <section id="filmes"></section>
-  <section class="card_lista-vazia">Você ainda não adicionou nenhum filme a sua lista de favoritos!</section>
+  <main class="container my-4 text-center">
+  <section id="filmes" class="row gy-4 justify-content-center"></section>
 
+  <section id="lista-vazia" class="card_lista-vazia text-center mt-4">
+    Você ainda não adicionou nenhum filme à sua lista de favoritos!
+  </section>
+</main>
+
+  <!-- Scripts principais -->
   <script src="js/script.js" type="module"></script>
   <script src="js/session.js" type="module"></script>
   <script src="js/filtro.js" type="module"></script>
   <script src="js/main.js" type="module"></script>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

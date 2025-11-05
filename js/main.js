@@ -1,6 +1,7 @@
 const ElementoParaInserirFilmes = document.getElementById('filmes');
 export const listaDeFavoritos = [];
 
+// Função para inserir filmes na tela
 function InserirFilmesNaTela(filmes) {
   ElementoParaInserirFilmes.innerHTML = '';
   filmes.forEach(movie => {

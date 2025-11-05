@@ -11,7 +11,7 @@ const PORT = process.env.PORT || 3000;
 // Permitir chamadas do seu front-end (CORS liberado para testes locais)
 app.use(cors());
 
-// 🔹 Rota para obter filmes populares
+// Rota para obter filmes populares
 app.get('/popular', async (req, res) => {
     try {
         const response = await axios.get('https://api.themoviedb.org/3/movie/popular', {
@@ -27,7 +27,7 @@ app.get('/popular', async (req, res) => {
     }
 });
 
-// 🔹 Rota para pesquisar filmes
+// Rota para pesquisar filmes
 app.get('/search', async (req, res) => {
     const query = req.query.query;
     if (!query) {
@@ -51,7 +51,7 @@ app.get('/search', async (req, res) => {
     }
 });
 
-// 🔹 Rota para buscar detalhes de um filme pelo ID
+// Rota para buscar detalhes de um filme pelo ID
 app.get('/movie/:id', async (req, res) => {
     const movieId = req.params.id;
     if (!movieId) {
@@ -72,7 +72,7 @@ app.get('/movie/:id', async (req, res) => {
     }
 });
 
-// 🔹 Rota raiz: mensagem de boas-vindas
+// Rota raiz: mensagem de boas-vindas
 app.get('/', (req, res) => {
     res.send('🎬 FilmFrenzy API Proxy está online! Acesse /popular, /search ou /movie/:id');
 });

@@ -1,5 +1,6 @@
 import { register, login } from './auth.js';
 
+// login.js: gerencia o formulário de login e registro
 const loginForm = document.getElementById('login-form');
 const registerForm = document.getElementById('register-form');
 const toggleRegisterBtn = document.getElementById('btn-toggle-register');
@@ -9,6 +10,7 @@ const registerMessage = document.getElementById('register-message');
 const btnLogin = document.getElementById('btn-login');
 const btnRegister = document.getElementById('btn-register');
 
+// Função para exibir mensagens
 function showMessage(el, text, isError = false) {
   el.textContent = text;
   el.style.color = isError ? '#ff5c5c' : '#16a085';
@@ -21,6 +23,7 @@ toggleRegisterBtn?.addEventListener('click', () => {
   loginMessage.textContent = '';
 });
 
+// Cancela registro
 cancelRegisterBtn?.addEventListener('click', () => {
   registerForm.classList.add('hidden');
   loginForm.classList.remove('hidden');
@@ -51,7 +54,7 @@ loginForm?.addEventListener('submit', async (ev) => {
   }
 });
 
-// REGISTER
+// REGISTRO
 registerForm?.addEventListener('submit', async (ev) => {
   ev.preventDefault();
   const email = document.getElementById('r-email').value.trim();

@@ -2,6 +2,7 @@ import { InserirFilmesNaTela } from "./main.js";
 
 let movies = [];
 
+// Obtém filmes populares ao carregar a página
 fetch('https://filmfrenzy-api.onrender.com/popular')
   .then(response => response.json())
   .then(data => {

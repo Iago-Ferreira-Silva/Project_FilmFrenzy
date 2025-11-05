@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const container = document.getElementById('cabecalho_actions');
     if (!container) return;
 
-    // avatar with initial
+    // avatar com inicial do e-mail e botão de logout
     const avatar = document.createElement('div');
     avatar.className = 'cabecalho_avatar';
     const initial = (user?.email || 'U').charAt(0).toUpperCase();

@@ -1,13 +1,16 @@
 import { listaDeFavoritos } from "./main.js";
 import { InserirFilmesNaTela } from "./main.js";
 
+// filtro.js: gerencia o filtro de filmes favoritos e a pesquisa
 const filtroAtivo = document.getElementById('cabecalho_checkbox');
 filtroAtivo.addEventListener('change', getFilmesFavoritos);
 
+// Pesquisa de filmes
 const inputPesquisa = document.querySelector('.cabecalho_pesquisa-input');
 const luga = document.querySelector('.cabecalho_pesquisa-lupa');
 luga.addEventListener('click', pesquisarFilmes);
 
+// Função para pesquisar filmes pela API proxy
 function pesquisarFilmes() {
   const searchTerm = inputPesquisa.value.trim();
 
@@ -40,6 +43,7 @@ function pesquisarFilmes() {
   }
 }
 
+// Função para obter filmes favoritos ou populares com base no filtro
 async function getFilmesFavoritos() {
   if (listaDeFavoritos.length === 0) {
     document.getElementById('filmes').innerHTML = '';

@@ -11,12 +11,17 @@ O FilmFrenzy utiliza a API do **The Movie Database (TMDB)** de forma segura, atr
 
 ## ✨ Funcionalidades
 
-- ✅ Listagem dos 10 filmes mais populares
+- ✅ Listagem dos filmes mais populares
 - 🔍 Busca de filmes por título
 - ⭐ Adicionar e remover filmes da lista de favoritos
 - 📱 Design responsivo para todos os dispositivos
-- 🔒 API Key protegida via servidor proxy
+- 🔒 API Key protegida via servidor proxy Node.js
 - 🌐 Back-end e front-end totalmente hospedados online
+- 🔐 Sistema de autenticação com registro e login
+- 👤 Gerenciamento de sessão de usuários
+- 🎨 Interface moderna com Bootstrap 5 e Google Fonts
+- 💾 Armazenamento seguro de dados com localStorage
+- 🔍 Filtro para exibir apenas filmes favoritos
 
 ---
 
@@ -45,7 +50,7 @@ O FilmFrenzy utiliza a API do **The Movie Database (TMDB)** de forma segura, atr
 ## 🌐 Projeto Online
 
 <p>
-  🔗 <a href="https://iago-ferreira-silva.github.io/Project_FilmFrenzy/" target="_blank"><strong>👉 Acesse o projeto aqui</strong></a>
+  🔗 <a href="https://iago-ferreira-silva.github.io/Project_FilmFrenzy/" target="_blank"><strong>Acesse o projeto aqui</strong></a>
 </p>
 
 ***
@@ -72,6 +77,6 @@ npm start
 ***
 
 ## 📌 STATUS DO PROJETO:
-![Badge Desenvolvimento](http://img.shields.io/static/v1?label=STATUS&message=EM%20DESENVOLVIMENTO&color=yellow&style=for-the-badge)
+![Badge Concluído](https://img.shields.io/static/v1?label=STATUS&message=CONCLU%C3%8DDO&color=brightgreen&style=for-the-badge)
 
 ***
